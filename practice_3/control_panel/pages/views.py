@@ -8,5 +8,13 @@ def home(request):
 def listing(request,path):
     content=os.listdir("/var/"+str(path))
     context={"dir_content":content}
+#    return render(request,'listing.html',context)
+    fileList=[]
+    dirList=[]
+    for item in context:
+        if(os.path.isfile("/var/"+str(path)+"/"+item)):
+            fileList.append(item)
+        else:
+            dirList.append(item)
     return render(request,'listing.html',context)
     

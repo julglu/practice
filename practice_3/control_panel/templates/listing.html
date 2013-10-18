@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Listing of directory {{ directory }}</title>
+</head>
+<body>
+	<h1>Listing of directory {{ directory }}</h1>
+	<table>
+	{% for d in dir_list %}
+	<tr>
+		<td><a href="{{ d }}">{{ d }}</a></td>
+	</tr>
+	{% endfor %}
+	{% for f in file_list %}
+ 	<tr>
+ 		<td>{{ f }}</td>
+ 	</tr>
+	{% endfor %}
+	</table>
+</body>
+</html>
