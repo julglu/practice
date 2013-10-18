@@ -11,10 +11,14 @@ def listing(request,path):
 #    return render(request,'listing.html',context)
     fileList=[]
     dirList=[]
+#    for item in context:
+#        if(os.path.isfile("/var/"+str(path)+"/"+item)):
+#            fileList.append(item)
+#        else:
+#            dirList.append(item)
+#    return render(request,'listing.html',context)
     for item in context:
         if(os.path.isfile("/var/"+str(path)+"/"+item)):
-            fileList.append(item)
-        else:
-            dirList.append(item)
-    return render(request,'listing.html',context)
-    
+            fileList.append({"name":item,"size":os.path.getsize("/var/"+str(path)+"/"+item),"mtime":time.ctime(os.path.gettime("/var/"+str(path)+"/"+item))})
+            dirList.append({"name":item,"size":os.path.getsize("/var/"+str(path
+)+"/"+item),"mtime":time.ctime(os.path.gettime("/var/"+str(path)+"/"+item))})    

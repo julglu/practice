@@ -8,12 +8,16 @@
 	<table>
 	{% for d in dir_list %}
 	<tr>
-		<td><a href="{{ d }}">{{ d }}</a></td>
+		<td><a href="{{ d.name }}">{{ d.name }}</a></td>
+		<td>{{ d.size }}</td>
+		<td>{{ d.mtime }}</td>
 	</tr>
 	{% endfor %}
 	{% for f in file_list %}
  	<tr>
- 		<td>{{ f }}</td>
+ 		<td>{{ f.name }}</td>
+		<td>{{ f.size }}</td>
+		<td>{{ f.mtime }}</td>
  	</tr>
 	{% endfor %}
 	</table>
