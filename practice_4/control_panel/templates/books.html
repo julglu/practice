@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Listing of books</title>
+</head>
+<body>
+	<h1>Listing of books</h1>
+	<table>
+        <tr>
+        	<th>Title</th>
+		<th>Author</th>
+		<th>Publsher</th>
+        </tr>
+        {% for book in book_list %}
+        <tr>
+                <td><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></td>
+ 		{% for auth in book.authors.all %}
+			<td> {{ auth }}</td>
+		{% endfor %}
+                <td>{{ book.publisher }}</td>
+        </tr>
+        {% endfor %}
+	</table>
+</body>
+</html>
+
