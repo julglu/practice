@@ -2,10 +2,11 @@ from django.db import models
 from datetime import datetime
 from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
+from utils.models import TimeStampedModel
 # Create your models here.
 
 
-class Author(models.Model):
+class Author(TimeStampedModel):
     first_name=models.CharField('Name', max_length=32)
     last_name=models.CharField('Surname', max_length=32)
     email=models.EmailField('Email', null=True)
@@ -19,7 +20,7 @@ class Author(models.Model):
         return "%i/" % self.id
 
 
-class Book(models.Model):
+class Book(TimeStampedModel):
     title=models.CharField('Title', max_length=128)
     authors=models.ManyToManyField('Author')
     publisher=models.ForeignKey('Publisher')
@@ -34,7 +35,7 @@ class Book(models.Model):
         return "%i/" % self.id
 
 
-class Publisher(models.Model):
+class Publisher(TimeStampedModel):
     title=models.CharField('Title', max_length=32)
     address=models.TextField('Address')
     city=models.CharField('City', max_length=64)
@@ -46,7 +47,7 @@ class Publisher(models.Model):
             self.title, self.city, self.country)
 
 
-class BooksImage(models.Model):
+class BooksImage(TimeStampedModel):
     small_cover=models.ImageField(upload_to='books_images/small')
     zoomed_cover=models.ImageField(upload_to='books_images/zoomed', null=True, blank=True)
     book=models.ForeignKey('Book')
