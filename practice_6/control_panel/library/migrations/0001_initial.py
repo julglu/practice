@@ -57,7 +57,6 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'library', ['BooksImage'])
 
-
     def backwards(self, orm):
         # Deleting model 'Author'
         db.delete_table(u'library_author')
@@ -73,7 +72,6 @@ class Migration(SchemaMigration):
 
         # Deleting model 'BooksImage'
         db.delete_table(u'library_booksimage')
-
 
     models = {
         u'contenttypes.contenttype': {
