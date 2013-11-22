@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ book }} </title>
+</head>
+<body>
+	<h1>Book card: {{ book }}</h1>
+	<table>
+        <tr><td>Title: </td><td> {{ book.title }}</td></tr>
+        <tr>
+            <td>Authors:</td>
+            {% for auth in book.authors.all %}
+                <td><a href="/library/authors/{{ auth.id }}/">{{ auth }}</a></td>
+            {% endfor %}
+        </tr>
+        <tr><td>Publisher: </td><td>{{book.publisher }}</td></tr>
+        <tr><td>Publication date: </td><td>{{book.publication_date }}</td></tr>
+	</table>
+</body>
+</html>
+

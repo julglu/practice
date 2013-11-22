@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Author_card</title>
+</head>
+<body>
+	<h1>{{ author }}</h1>
+	<table>
+        <tr>
+        	<th>Name</th>
+		<th>Email</th>
+		<th>Age</th>
+        </tr>
+        <tr>
+                <td>{{ author }}</td>
+		<td>{{ author.email }}</td>
+		{% if author.birthyear %}
+ 		<td>{{ author.birthyear }}</td>
+		{% else %}
+		<td> Unknown </td>
+		{% endif %}
+        </tr>
+	</table>
+</body>
+</html>
+

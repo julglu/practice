@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Listing of Authors</title>
+</head>
+<body>
+	<h1>Listing of authors</h1>
+	<table>
+        {% for author in authors %}
+        <tr>
+                <td><a href="{{ author.get_absolute_url }}">{{ author }}</a></td>
+        </tr>
+        {% endfor %}
+	</table>
+</body>
+</html>
+
