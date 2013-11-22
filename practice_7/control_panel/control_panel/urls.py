@@ -21,4 +21,6 @@ urlpatterns = patterns(
     url(r'^library/authors/$', AuthorsList.as_view()),
     url(r'^library/authors/(?P<pk>\d+)/$', AuthorDetail.as_view()),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+    url(r'^registration/$', 'registration.views.register'),
+    url(r'^authentication/$', 'registration.views.authenticate'),
 )
